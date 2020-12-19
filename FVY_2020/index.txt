@@ -1,0 +1,29 @@
+ubyte function fact(ubyte N)
+{
+type ubyte newN = N - 1;	
+if N&0						
+then 
+[
+return 1;
+]
+else
+[
+N = N * fact(newN);			
+return N;
+]
+return 1;
+}
+main
+{
+type string str = "My Program";		
+type ubyte len = lenght(str);		
+output "Length of string: ";		
+output str;								
+output " = ";
+output len;
+outline " ";						
+type ubyte factvar = fact(len);		
+	output "factorial: ";			
+	outline factvar;
+}
+

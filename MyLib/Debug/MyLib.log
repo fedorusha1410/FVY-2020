@@ -1,0 +1,21 @@
+﻿Сборка начата 15.12.2020 19:24:21.
+     1>Проект "D:\УЧЕБА 2 КУРС\КУРСОВОЙ_ПРОЕКИ\MyLib\MyLib.vcxproj" в узле 2 (целевые объекты Build).
+     1>InitializeBuildStatus:
+         Обращение к "Debug\MyLib.tlog\unsuccessfulbuild".
+       ClCompile:
+         Для всех выходных данных обновления не требуется.
+         Для всех выходных данных обновления не требуется.
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio\Новая папка\VC\Tools\MSVC\14.22.27905\bin\HostX86\x86\Lib.exe /OUT:"D:\УЧЕБА 2 КУРС\КУРСОВОЙ_ПРОЕКИ\FVY_2020\Debug\MyLib.lib" /NOLOGO /MACHINE:X86 Debug\MyLib.obj
+         Debug\pch.obj
+         MyLib.vcxproj -> D:\УЧЕБА 2 КУРС\КУРСОВОЙ_ПРОЕКИ\FVY_2020\Debug\MyLib.lib
+       FinalizeBuildStatus:
+         Файл "Debug\MyLib.tlog\unsuccessfulbuild" удаляется.
+         Обращение к "Debug\MyLib.tlog\MyLib.lastbuildstate".
+     1>Сборка проекта "D:\УЧЕБА 2 КУРС\КУРСОВОЙ_ПРОЕКИ\MyLib\MyLib.vcxproj" завершена (целевые объекты Build).
+
+Сборка успешно завершена.
+    Предупреждений: 0
+    Ошибок: 0
+
+Прошло времени 00:00:00.31

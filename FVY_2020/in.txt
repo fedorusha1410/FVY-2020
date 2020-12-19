@@ -1,0 +1,27 @@
+ubyte function abs(ubyte a)
+{
+a=a+2;
+type ubyte tmp = 10;
+if a > 3 
+then [
+return tmp;
+]
+return a;
+}
+main
+{
+type string str= "My first program!";		
+outline str;								
+type ubyte a = 5;							
+type ubyte c=2;								
+output "a = ";
+output a;
+outline " ";
+type ubyte i = (-a)+(1+abs(c))*3;		 
+while i > 0								
+do
+[
+outline i; 
+i=i-1;
+]
+}

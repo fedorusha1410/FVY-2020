@@ -1,0 +1,152 @@
+.586
+.model flat, stdcall
+includelib libucrt.lib
+includelib kernel32.lib
+includelib "..\Debug\MyLib.lib"
+ExitProcess PROTO:DWORD 
+.stack 4096
+
+ outnum PROTO : DWORD
+
+ outstr PROTO : DWORD
+
+ outstrline PROTO : DWORD
+
+ outnumline PROTO : DWORD
+
+ system_pause PROTO 
+
+ lenght PROTO  : DWORD
+
+ power PROTO : DWORD, : DWORD
+.const
+ null_division BYTE 'ERROR: DIVISION BY ZERO', 0
+ overflow BYTE 'ERROR: VARIABLE OVERFLOW', 0 
+	L1 SDWORD 1
+	L2 SDWORD 0
+	L3 BYTE 'My Program', 0
+	L4 BYTE 'Length of string: ', 0
+	L5 BYTE ' = ', 0
+	L6 BYTE ' ', 0
+	L7 BYTE 'factorial: ', 0
+.data
+	_factnewN SDWORD 0
+	mainstr DWORD ?
+	mainlen SDWORD 0
+	mainfactvar SDWORD 0
+
+.code
+
+_fact PROC _factN :  SDWORD 
+	push _factN
+	push L1
+	pop ebx
+	pop eax
+	sub eax, ebx
+	push eax
+	pop _factnewN
+
+	mov edx, _factN
+	cmp edx, L2
+	jz right1
+	jnz wrong1
+	jmp next1
+right1:	mov eax, L1
+	ret
+
+SOMETHINGWRONG:
+push offset null_division
+call outstrline
+call system_pause
+push -1
+call ExitProcess
+
+EXIT_OVERFLOW:
+push offset overflow
+call outstrline
+call system_pause
+push -2
+call ExitProcess
+	jmp next1
+
+wrong1:	push _factN
+	push _fact
+	push _factnewN
+	pop edx
+	pop edx
+	push _factnewN
+		call _fact
+	push eax
+	pop eax
+	pop ebx
+	imul ebx
+	jo EXIT_OVERFLOW
+	push eax
+	pop _factN
+
+	mov eax, _factN
+	ret
+
+next1:	mov eax, L1
+	ret
+_fact ENDP
+main PROC
+	push offset L3
+	pop mainstr
+
+	push lenght
+	push mainstr
+	pop edx
+	pop edx
+	push mainstr
+		call lenght
+	push eax
+	pop mainlen
+
+
+push offset L4
+call outstr
+
+push mainstr
+call outstr
+
+push offset L5
+call outstr
+
+push mainlen
+call outnum
+
+push offset L6
+call outstrline
+	push _fact
+	push mainlen
+	pop edx
+	pop edx
+	push mainlen
+		call _fact
+	push eax
+	pop mainfactvar
+
+
+push offset L7
+call outstr
+
+push mainfactvar
+call outnumline
+call system_pause
+push 0
+call ExitProcess
+SOMETHINGWRONG:
+push offset null_division
+call outstrline
+call system_pause
+push -1
+call ExitProcess
+EXIT_OVERFLOW:
+push offset overflow
+call outstrline
+call system_pause
+push -2
+call ExitProcess
+main ENDP
+end main

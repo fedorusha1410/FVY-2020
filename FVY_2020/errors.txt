@@ -1,0 +1,5 @@
+ubyte function func(ubyte a)
+{return 1;}
+main{
+type ubyte i = func("string");
+}
